@@ -2,6 +2,30 @@
 
 This project demonstrates how to deploy a Flask application on AWS Lambda using Python 3.12 on ARM64 architecture with custom Lambda layers.
 
+## AWS Free Tier Limits
+
+When deploying this Flask application on AWS Lambda, be aware of the following free tier limits:
+
+### Free Tier Allowances
+| AWS Service | Free Tier Limit |
+|-------------|-----------------|
+| Lambda | 1M requests + 400K GB-seconds |
+| API Gateway | 1M HTTP requests |
+| Data Transfer | 1 GB outbound |
+
+### Cost Estimation Example
+For a typical Flask application with 1M requests over the free tier:
+
+| Item | Units | Cost Estimate |
+|------|-------|---------------|
+| Lambda Requests | 1M over free | $0.20 |
+| Lambda Duration | (128 MB × 1s × 1M = 128K GB-sec) − 400K free | $0 (still under free GB-sec limit) |
+| API Gateway Requests | 1M over free | $1.00 |
+| Outbound Transfer (2 GB over) | 2 GB | $0.18 |
+| **Total** | | **≈ $1.38** |
+
+> **Note**: These are approximate costs. Actual costs may vary based on your specific usage patterns and AWS pricing in your region.
+
 ## Prerequisites
 
 - macOS, Linux, or Windows with Python 3.12 support
