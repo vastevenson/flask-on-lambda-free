@@ -91,18 +91,6 @@ zip -r ../flask-layer.zip python
 cd ..
 ```
 
-#### Lambda WSGI Layer
-
-Create the lambda-wsgi dependency layer:
-
-```bash
-mkdir -p lambda_wsgi-layer/python
-pip install lambda-wsgi -t lambda_wsgi-layer/python
-cd lambda_wsgi-layer
-zip -r ../lambda_wsgi-layer.zip python
-cd ..
-```
-
 #### Serverless WSGI Layer
 
 Create the serverless-wsgi dependency layer:
