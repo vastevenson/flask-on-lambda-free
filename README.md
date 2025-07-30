@@ -2,6 +2,17 @@
 
 This project demonstrates how to deploy a Flask application on AWS Lambda using Python 3.12 on ARM64 architecture with custom Lambda layers.
 
+## Why WSGI is Needed
+
+Flask applications are built using the WSGI (Web Server Gateway Interface) standard, which is designed for traditional web servers. However, AWS Lambda operates on an event-driven model that doesn't natively understand WSGI requests. 
+
+The `serverless-wsgi` library acts as a bridge between Lambda's event format and Flask's WSGI interface. It:
+- Converts Lambda API Gateway events into WSGI-compatible requests
+- Handles the response formatting back to Lambda's expected format
+- Manages the Flask application lifecycle within Lambda's stateless environment
+
+This allows you to run standard Flask applications on Lambda without rewriting your code for the serverless architecture.
+
 ## AWS Free Tier Limits
 
 When deploying this Flask application on AWS Lambda, be aware of the following free tier limits:
